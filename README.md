@@ -1,2 +1,2 @@
 # 2D-Game
-Group 4
+Product Design and Implementation | Group 4
