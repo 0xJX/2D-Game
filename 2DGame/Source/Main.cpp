@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <iostream>
 #include <string>
+#include "Entity.h"
 #include "StateManager.h"
 
 GLFWwindow* window;
