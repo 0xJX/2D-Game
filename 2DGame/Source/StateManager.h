@@ -14,6 +14,7 @@ public:
 	int GetGameState();
 	void SetGameState(int i);
 	CStateManager();
+	void Tick();
 };
 
 extern CStateManager* p_StateManager;

@@ -2,7 +2,7 @@
 
 std::string CArmor::GetName()
 {
-	return std::string();
+	return this->strName;
 }
 
 void CArmor::SetName(std::string str)
