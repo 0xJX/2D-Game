@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Source\StateManager.cpp" />
     <ClCompile Include="Source\Armor.cpp" />
     <ClCompile Include="Source\Entity.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -161,6 +163,8 @@
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="include\GLFW\glfw3.h" />
     <ClInclude Include="include\GLFW\glfw3native.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Source\StateManager.h" />
     <ClInclude Include="Source\Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
