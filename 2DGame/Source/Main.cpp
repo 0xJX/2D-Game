@@ -1,6 +1,7 @@
 #include <GLFW/glfw3.h>
 #include <windows.h>
 #include <iostream>
+#include "Entity.h"
 
 int main()
 {
