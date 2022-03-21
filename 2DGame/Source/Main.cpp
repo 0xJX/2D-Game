@@ -1,10 +1,34 @@
 #include <GLFW/glfw3.h>
 #include <windows.h>
 #include <iostream>
+#include <string>
+#include "StateManager.h"
+
+GLFWwindow* window;
+
+void InitPointers()
+{
+    p_StateManager = new CStateManager();
+}
+
+void Draw()
+{
+    switch (p_StateManager->GetGameState())
+    {
+    case IN_MAINMENU:
+        // Draw main menu stuff here.
+        std::cout << "We're in mainmenu!\n";
+        break;
+    case IN_GAME:
+        // Draw ingame stuff here.
+        break;
+    }
+}
 
 int main()
 {
     std::cout << "Program started.\n";
+    InitPointers();
 
     /* 
        Initialize the library 
@@ -21,7 +45,7 @@ int main()
     std::cout << "GLFW should be initialized.\n";
 
     /* Create a windowed mode window and its OpenGL context */
-    GLFWwindow* window = glfwCreateWindow(640, 480, "Test window", NULL, NULL);
+    window = glfwCreateWindow(1280, 720, "2D RPG Game", NULL, NULL);
     if (!window)
         return 0;
 
@@ -31,6 +55,7 @@ int main()
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        Draw();
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
