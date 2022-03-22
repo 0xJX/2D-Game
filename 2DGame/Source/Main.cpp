@@ -2,28 +2,14 @@
 #include <windows.h>
 #include <iostream>
 #include <string>
+#include "Engine.h"
 #include "Entity.h"
 #include "StateManager.h"
 
-GLFWwindow* window;
-
 void InitPointers()
 {
+    p_Engine = new CEngine();
     p_StateManager = new CStateManager();
-}
-
-void Draw()
-{
-    switch (p_StateManager->GetGameState())
-    {
-    case IN_MAINMENU:
-        // Draw main menu stuff here.
-        std::cout << "We're in mainmenu!\n";
-        break;
-    case IN_GAME:
-        // Draw ingame stuff here.
-        break;
-    }
 }
 
 int main()
@@ -31,42 +17,27 @@ int main()
     std::cout << "Program started.\n";
     InitPointers();
 
-    /* 
-       Initialize the library 
-       There seems to be a some kind of driver issue that causes this delay sometimes..
-       Rebooting seems to work sometimes.
-    */
-    std::cout << "Initializing OpenGL, this may take up to 30 seconds on some computers..\n";
-    if (glfwInit() == GLFW_FALSE)
+    if (!p_Engine->GetGlfwWindow())
     {
-        std::cout << "Failed to init GLFW!\n";
-        return 0;
+        std::cout << "FATAL! GLFW window pointer was null, terminating..\n";
+        return EXIT_FAILURE;
     }
 
-    std::cout << "GLFW should be initialized.\n";
-
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1280, 720, "2D RPG Game", NULL, NULL);
-    if (!window)
-        return 0;
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(p_Engine->GetGlfwWindow()))
     {
-        Draw();
+        // Draw the selected state.
+        p_StateManager->Tick();
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
-        glfwSwapBuffers(window);
+        glfwSwapBuffers(p_Engine->GetGlfwWindow());
 
         /* Poll for and process events */
         glfwPollEvents();
     }
 
     glfwTerminate();
-    return 0;
+    return EXIT_SUCCESS;
 }

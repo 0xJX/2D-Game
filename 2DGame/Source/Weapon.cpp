@@ -2,7 +2,7 @@
 
 std::string CWeapon::GetName()
 {
-	return std::string();
+	return this->strName;
 }
 
 void CWeapon::SetName(std::string str)
@@ -39,5 +39,3 @@ void CWeapon::SetCriticalRate(int i)
 {
 	this->iCriticalRate = i;
 }
-
-

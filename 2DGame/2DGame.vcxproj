@@ -151,7 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Source\Engine.cpp" />
+    <ClCompile Include="Source\Menu\MainMenu.cpp" />
     <ClCompile Include="Source\StateManager.cpp" />
     <ClCompile Include="Source\Armor.cpp" />
     <ClCompile Include="Source\Entity.cpp" />
@@ -159,11 +160,12 @@
     <ClCompile Include="Source\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Engine.h" />
     <ClInclude Include="Source\Armor.h" />
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="include\GLFW\glfw3.h" />
     <ClInclude Include="include\GLFW\glfw3native.h" />
-    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Source\Menu\MainMenu.h" />
     <ClInclude Include="Source\StateManager.h" />
     <ClInclude Include="Source\Weapon.h" />
   </ItemGroup>
