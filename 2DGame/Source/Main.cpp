@@ -5,10 +5,12 @@
 #include "Engine.h"
 #include "Entity.h"
 #include "StateManager.h"
+#include "DrawManager.h"
 
 void InitPointers()
 {
     p_Engine = new CEngine();
+    p_DrawManager = new CDrawManager;
     p_StateManager = new CStateManager();
 }
 
@@ -28,8 +30,6 @@ int main()
     {
         // Draw the selected state.
         p_StateManager->Tick();
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(p_Engine->GetGlfwWindow());
