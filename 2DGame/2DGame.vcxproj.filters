@@ -21,4 +21,10 @@
     <ClInclude Include="Source\Engine.h" />
     <ClInclude Include="Source\DrawManager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\font.fnt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\font_0.png" />
+  </ItemGroup>
 </Project>
