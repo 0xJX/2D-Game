@@ -10,6 +10,7 @@ private:
 	bool SetupOpenGL();
 public:
 	void GetMaxScreenResolution();
+	GLFWvidmode GetWindowResolution();
 	GLFWwindow* GetGlfwWindow();
 	CEngine();
 };

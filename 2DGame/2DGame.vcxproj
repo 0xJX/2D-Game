@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\DrawManager.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\Menu\MainMenu.cpp" />
     <ClCompile Include="Source\StateManager.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Source\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\DrawManager.h" />
     <ClInclude Include="Source\Engine.h" />
     <ClInclude Include="Source\Armor.h" />
     <ClInclude Include="Source\Entity.h" />

@@ -19,6 +19,13 @@ void CEngine::GetMaxScreenResolution()
 	std::cout << "Screen resolution: " << this->iMaxScreenWidth << "x" << this->iMaxScreenHeight << "\n";
 }
 
+GLFWvidmode CEngine::GetWindowResolution()
+{
+	GLFWvidmode vidmode;
+	glfwGetWindowSize(this->window, &vidmode.width, &vidmode.height);
+	return vidmode;
+}
+
 GLFWwindow* CEngine::GetGlfwWindow()
 {
 	return this->window;
@@ -58,4 +65,7 @@ CEngine::CEngine()
 
 	// Init and Setup OpenGL.
 	this->SetupOpenGL();
+
+	// Print window resolution
+	std::cout << "Window resolution: " << this->GetWindowResolution().width << "x" << this->GetWindowResolution().height << "\n";
 }

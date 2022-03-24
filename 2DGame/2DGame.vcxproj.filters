@@ -8,6 +8,7 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Weapon.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
+    <ClCompile Include="Source\DrawManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Armor.h" />
@@ -18,5 +19,6 @@
     <ClInclude Include="Source\StateManager.h" />
     <ClInclude Include="Source\Weapon.h" />
     <ClInclude Include="Source\Engine.h" />
+    <ClInclude Include="Source\DrawManager.h" />
   </ItemGroup>
 </Project>
