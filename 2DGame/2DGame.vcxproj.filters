@@ -20,11 +20,6 @@
     <ClInclude Include="Source\Weapon.h" />
     <ClInclude Include="Source\Engine.h" />
     <ClInclude Include="Source\DrawManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Source\font.fnt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Source\font_0.png" />
+    <ClInclude Include="Source\SDK\Color.h" />
   </ItemGroup>
 </Project>

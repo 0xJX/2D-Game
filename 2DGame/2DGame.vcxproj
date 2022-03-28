@@ -161,6 +161,7 @@
     <ClCompile Include="Source\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\SDK\Color.h" />
     <ClInclude Include="Source\DrawManager.h" />
     <ClInclude Include="Source\Engine.h" />
     <ClInclude Include="Source\Armor.h" />
@@ -170,12 +171,6 @@
     <ClInclude Include="Source\Menu\MainMenu.h" />
     <ClInclude Include="Source\StateManager.h" />
     <ClInclude Include="Source\Weapon.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Source\font.fnt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Source\font_0.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

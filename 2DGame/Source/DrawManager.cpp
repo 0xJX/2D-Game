@@ -3,11 +3,11 @@
 #include <windows.h>
 #include "Engine.h"
 #include <gl/GL.h>
+#include "SDK/Color.h"
 
 CDrawManager* p_DrawManager;
 
-// TODO: clean this and add color argument.
-void CDrawManager::DrawRect(int x, int y, int w, int h)
+void CDrawManager::DrawRect(int x, int y, int w, int h, Color color)
 {
     //This sets up the viewport so that the coordinates (0, 0) are at the top left of the window
     glViewport(0, 0, p_Engine->GetWindowResolution().width, p_Engine->GetWindowResolution().height);
@@ -27,7 +27,7 @@ void CDrawManager::DrawRect(int x, int y, int w, int h)
     glTranslatef(x, y, 0.0f); //Translate rectangle to its assigned x and y position
     //Put other transformations here
     glBegin(GL_QUADS); //We want to draw a quad, i.e. shape with four sides
-    glColor3f(1, 0, 0); //Set the colour to red 
+    glColor4f(color.rf(), color.gf(), color.bf(), color.af()); // Set the color
     glVertex2f(0, 0); //Draw the four corners of the rectangle
     glVertex2f(0, h);
     glVertex2f(w, h);
@@ -35,14 +35,9 @@ void CDrawManager::DrawRect(int x, int y, int w, int h)
     glEnd();
     glPopMatrix();
 }
-void CDrawManager::DrawCircle(int x, int y, int r)
+
+void CDrawManager::DrawCircle(int x, int y, int r, Color color)
 {
-    //---------------------------------------------------------------------------
-    //most of the position code is copied from above and should be edited as such in the future
-    //---------------------------------------------------------------------------
-
-    float theta; //theta variable used for calculating the circle
-
     //This sets up the viewport so that the coordinates (0, 0) are at the top left of the window
     glViewport(0, 0, p_Engine->GetWindowResolution().width, p_Engine->GetWindowResolution().height);
 
@@ -59,14 +54,16 @@ void CDrawManager::DrawCircle(int x, int y, int r)
     glPushMatrix(); 
     glTranslatef(x, y, 0.0f); 
     glBegin(GL_POLYGON); //creating the circle polygon
-    glColor3f(0, 1, 0); //color set to green
-    for (int i = 0; i < 360; i++) { //loop creating the circle shape
-        theta = i * 3.142 / 180;
+    glColor4f(color.rf(), color.gf(), color.bf(), color.af()); // Set the color
+    for (int i = 0; i < 360; i++) //loop creating the circle shape
+    {
+        float theta = i * 3.142 / 180; // calculating the circle
         glVertex2f(r*cos(theta),r*sin(theta)); //multiplying the circle by the radius taken in as param(r)
     }
     glEnd();
     glPopMatrix();
 }
+
 void CDrawManager::DrawTextGL(std::string text, double x, double y, double scale, long color)
 {
     // This is more complicated, most likely the easiest solution is to make an texture/sprite file with the letters and draw the letters from it.
